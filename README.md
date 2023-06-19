@@ -8,7 +8,7 @@ It parses the installed packages listed in the percona/meta/main.yml file and ge
 ## Usage
 
 ```Go
-❯ go run . -h
+❯ go-dock . -h
 [!] Please specify the path to the YAML file using the -f flag
 exit status 1
 ```
