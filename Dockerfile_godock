@@ -1,0 +1,38 @@
+###################################################################################################################
+#
+# Dockerfile for testing go-dock - DO NOT USE!!!
+# 
+# Working version: Dockerfile_godock
+# 
+# Usage:
+#   docker build -f Dockerfile_godock -t go-dock:1.0 .
+#   docker run -it --rm -v ${PWD}:/go-dock go-dock:1.0 -f percona/meta/main.yml
+#
+# Cleanup:
+#   docker rm -v $(docker ps -aq --filter=ancestor=go-dock:1.0) || docker rmi $(docker images 'go-dock:1.0' -a -q)
+###################################################################################################################
+# Use the official Go image as the base image
+FROM golang:latest
+
+LABEL maintainer="Kurt Larsen <kurt_lv at cox dot net>"
+LABEL version=1.0
+LABEL environment=dev
+
+# Install ping command
+# RUN apt-get update && apt-get install -y iputils-ping
+
+
+# Set the Current Working Directory inside the container
+WORKDIR  /go-dock
+
+# Copy the source code into the container
+COPY . .
+
+# Build the Go binary
+RUN go build -o /go/bin/go-dock
+
+# Set the entrypoint to the ping cmd by default when the container starts
+# ENTRYPOINT ["/bin/ping", "-c", "300", "localhost"]
+
+# Set the Entry Point and/or Default Command
+ENTRYPOINT ["go-dock"]
