@@ -23,3 +23,6 @@ go.work
 # Pipfile
 *Pipfile*
 *Pipfile.lock*
+
+# Go file
+*Dockerfile_godock*
