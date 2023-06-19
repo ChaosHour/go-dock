@@ -8,13 +8,13 @@ It parses the installed packages listed in the percona/meta/main.yml file and ge
 ## Usage
 
 ```Go
-❯ go-dock . -h
+❯ go-dock -h
 [!] Please specify the path to the YAML file using the -f flag
 exit status 1
 ```
 
 ```Go
-❯ go-dock . -f percona/meta/main.yml 
+❯ go-dock -f percona/meta/main.yml 
 [+] Dockerfile generated successfully
 [*] Installed Dependencies:
   - percona-server-server
