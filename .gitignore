@@ -25,4 +25,4 @@ go.work
 *Pipfile.lock*
 
 # Go file
-*Dockerfile_godock*
+# *Dockerfile_godock*
